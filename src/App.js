@@ -48,13 +48,15 @@ export default class App extends React.Component {
           <div className="app-chip-group-pinned">
             <ChipGroup chipsData={ this.state.pinned } 
               detailHandler={ this.openDetail.bind( this ) }
-              pinHandler={ this.unpinChip.bind( this ) }/>
+              pinHandler={ this.unpinChip.bind( this ) }
+              isPinned={ true }/>
           </div>
 
           <div className="app-chip-group-main">
             <ChipGroup chipsData={ this.state.names } 
               detailHandler={ this.openDetail.bind( this ) }
-              pinHandler={ this.pinChip.bind( this ) }/>
+              pinHandler={ this.pinChip.bind( this ) }
+              isPinned={ false }/>
           </div>
 
         </div>

@@ -1,15 +1,18 @@
 import * as React from 'react';
 
-export const Chip = ({ chipData:{ name, gender, id }, detailHandler, pinHandler }) => {
+export const Chip = ({ chipData:{ name, gender, id }, detailHandler, isPinned, pinHandler }) => {
+    const pin = '/pinEmpty.png';
+    const unpin = '/pinfilled.png';
+    const pinImg = isPinned ? unpin : pin;
+    const pinAlt = isPinned ? 'Unpin' : 'Pin'
+
     const pinClick = () => {
-        console.log( 'pinClick' )
         pinHandler( id );
     };
 
     const detailClick = () => {
-        console.log( 'detailClick' )
         detailHandler( id );
-    }
+    };
 
     return (
         <div className="chip-wrapper">
@@ -18,7 +21,7 @@ export const Chip = ({ chipData:{ name, gender, id }, detailHandler, pinHandler 
                     { name }
                 </div>
                 <div className={`chip-pin`} onClick={ pinClick }>
-                    PIN{/* TODO: REPLACE WITH PIN ICON */}
+                    <img src={ pinImg } alt={ pinAlt }/>
                 </div>
                 <div className="chip-pin" onClick={ detailClick }>
                     DETAIL{/* TODO: REPLACE WITH DETAIL ICON */}
