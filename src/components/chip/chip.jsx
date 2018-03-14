@@ -11,6 +11,7 @@ export const Chip = ({ chipData:{ name, gender, id }, detailHandler, isPinned, p
     };
 
     const detailClick = () => {
+        console.log('detail click handler');
         detailHandler( id );
     };
 
