@@ -16,15 +16,12 @@ export const Chip = ({ chipData:{ name, gender, id }, detailHandler, isPinned, p
 
     return (
         <div className="chip-wrapper">
-            <div className={ `chip chip-gender-${ gender }` }>
+            <div className={ `chip chip-gender-${ gender }` } onClick={ detailClick }>
                 <div className="chip-name">
                     { name }
                 </div>
                 <div className={`chip-pin`} onClick={ pinClick }>
                     <img src={ pinImg } alt={ pinAlt }/>
-                </div>
-                <div className="chip-pin" onClick={ detailClick }>
-                    DETAIL{/* TODO: REPLACE WITH DETAIL ICON */}
                 </div>
             </div>
         </div>
