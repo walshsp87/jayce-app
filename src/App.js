@@ -42,17 +42,19 @@ export default class App extends React.Component {
   isIdPinned = id => this.state.pinned.filter(val => val.id === id).length > 0;
 
   onChangeSearch = (event) => {
-    this.setState({search: event.target.value})
+    const { value } = event.target;
+    const newNames = names.filter((name) => name.name.toLowerCase().includes(value.toLowerCase()));
+    this.setState({names: newNames});
   }
 
   renderNameLists = () => ([
-    <div className="app-searchbar">
+    <div className="app-searchbar" key="group-searchbar">
       <input className="searchbar" type="text" onChange={ this.onChangeSearch.bind(this) }/>
     </div>,
-    <div className="app-quick-filters" style={{color: 'red'}}>
+    <div className="app-quick-filters" key="group-filters" style={{color: 'red'}}>
       ADD QUICK FILTER COMPONENT
     </div>,
-    <div className="app-sorting" style={{color: 'red'}}>
+    <div className="app-sorting" key="group-sort" style={{color: 'red'}}>
       ADD SORT COMPONENT
     </div>,
     <div className="app-chip-group-pinned" key="group-pinned">
