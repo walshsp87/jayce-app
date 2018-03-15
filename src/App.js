@@ -4,15 +4,18 @@ import { ChipGroup } from './components/chipGroup/chipGroup';
 import { Details } from './components/details/details';
 import './app.css';
 
-
 export default class App extends React.Component {
   constructor( props ) {
     super( props );
-    const pinned = [],
-          focused = '';
+    const pinned = [];
+    const focused = '';
+    const search = '';
 
     this.state = {
-      focused, names, pinned
+      focused,
+      names,
+      pinned,
+      search,
     };
   }
 
@@ -38,7 +41,20 @@ export default class App extends React.Component {
 
   isIdPinned = id => this.state.pinned.filter(val => val.id === id).length > 0;
 
+  onChangeSearch = (event) => {
+    this.setState({search: event.target.value})
+  }
+
   renderNameLists = () => ([
+    <div className="app-searchbar">
+      <input className="searchbar" type="text" onChange={ this.onChangeSearch.bind(this) }/>
+    </div>,
+    <div className="app-quick-filters" style={{color: 'red'}}>
+      ADD QUICK FILTER COMPONENT
+    </div>,
+    <div className="app-sorting" style={{color: 'red'}}>
+      ADD SORT COMPONENT
+    </div>,
     <div className="app-chip-group-pinned" key="group-pinned">
       <ChipGroup chipsData={ this.state.pinned } 
         detailHandler={ this.openDetail.bind( this ) }
@@ -68,18 +84,14 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <header className="app-header">
-
           <ul className="app-menu">**menu here**</ul>
-
         </header>
         <div className="app-body">
-
           {
             this.state.focused.length === 0
               ? this.renderNameLists()
               : this.renderDetailView(this.state.focused)
           }
-
         </div>
       </div>
     );

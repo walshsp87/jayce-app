@@ -1,14 +1,12 @@
 import * as React from 'react';
 
-export const Details = ({ close, name }) => {
-    return (
+export const Details = ({ close, name }) => (
+    <div>
         <div>
-            <div>
-                <span onClick={ close }>BACK</span>
-            </div>
-            <div>
-                {JSON.stringify(name)}
-            </div>
+            <span onClick={ close }>BACK</span>
         </div>
-    );
-};
+        <div>
+            {JSON.stringify(name)}
+        </div>
+    </div>
+);
