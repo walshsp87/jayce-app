@@ -19,7 +19,6 @@ export const Chip = ({
     };
 
     const detailClick = () => {
-        console.log('detail click handler');
         detailHandler( id );
     };
 

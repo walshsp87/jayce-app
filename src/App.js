@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { names } from './data/names';
 import { ChipGroup } from './components/chipGroup/chipGroup';
+import { Details } from './components/details/details';
 import './app.css';
 
 
@@ -52,7 +53,16 @@ export default class App extends React.Component {
         isPinned={ this.isIdPinned.bind( this ) }
         group={ 'group-main' }/>
     </div>
-  ])
+  ]);
+
+  renderDetailView = id => {
+    const name = this.state.names.find(el => el.id === id);
+    return (
+      <div className="app-detail-view">
+        <Details name={ name } close={ this.closeDetail } />
+      </div>
+    );
+  };
 
   render() {
     return (
@@ -64,7 +74,11 @@ export default class App extends React.Component {
         </header>
         <div className="app-body">
 
-          {this.renderNameLists()}
+          {
+            this.state.focused.length === 0
+              ? this.renderNameLists()
+              : this.renderDetailView(this.state.focused)
+          }
 
         </div>
       </div>
