@@ -25,8 +25,8 @@ export const Chip = ({
 
     return (
         <div className="chip-wrapper">
-            <div className={ `chip chip-gender-${ gender }` } onClick={ detailClick }>
-                <div className="chip-name">
+            <div className={ `chip chip-gender-${ gender }` }>
+                <div className="chip-name" onClick={ detailClick }>
                     { name }
                 </div>
                 <div className={`chip-pin`} onClick={ pinClick }>
