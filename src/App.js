@@ -35,6 +35,8 @@ export default class App extends React.Component {
     this.setState({ pinned: [ ...pinned ] });
   };
 
+  isIdPinned = id => this.state.pinned.filter(val => val.id === id).length > 0;
+
   render() {
     return (
       <div className="app">
@@ -49,14 +51,16 @@ export default class App extends React.Component {
             <ChipGroup chipsData={ this.state.pinned } 
               detailHandler={ this.openDetail.bind( this ) }
               pinHandler={ this.unpinChip.bind( this ) }
-              isPinned={ true }/>
+              isPinned={ this.isIdPinned.bind( this ) }
+              group={ 'group-pinned' }/>
           </div>
 
           <div className="app-chip-group-main">
             <ChipGroup chipsData={ this.state.names } 
               detailHandler={ this.openDetail.bind( this ) }
               pinHandler={ this.pinChip.bind( this ) }
-              isPinned={ false }/>
+              isPinned={ this.isIdPinned.bind( this ) }
+              group={ 'group-main' }/>
           </div>
 
         </div>
