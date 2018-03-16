@@ -2,6 +2,8 @@ import * as React from 'react';
 import { names } from './data/names';
 import { ChipGroup } from './components/chipGroup/chipGroup';
 import { Details } from './components/details/details';
+import { QuickfiltersComponent } from './components/quickfilter/quickfiltersComponent';
+import { SortsComponent } from './components/sort/sortsComponent';
 import './app.css';
 
 export default class App extends React.Component {
@@ -10,13 +12,29 @@ export default class App extends React.Component {
     const pinned = [];
     const focused = '';
     const search = '';
+    const quickFilter = 'all';
+    const sorting = 'A-Z';
+    const nameList = [...names].sort(App.sortingByName.bind(this));
 
     this.state = {
       focused,
-      names,
       pinned,
+      quickFilter,
       search,
+      sorting,
+      names: nameList,
     };
+  }
+
+  static sortingByName(a, b) {
+    if (this.state && this.state.sorting === 'Z-A') {
+      if (a.name < b.name) return 1;
+      if (a.name > b.name) return -1;
+      return 0;
+    }
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
+    return 0;
   }
 
   openDetail = focused => {
@@ -41,22 +59,38 @@ export default class App extends React.Component {
 
   isIdPinned = id => this.state.pinned.filter(val => val.id === id).length > 0;
 
+  onQuickFilter = ( quickFilter ) => {
+    this.setState({quickFilter}, () => {this.onChangeSearch()});
+  }
+
   onChangeSearch = (event) => {
-    const { value } = event.target;
-    const newNames = names.filter((name) => name.name.toLowerCase().includes(value.toLowerCase()));
-    this.setState({names: newNames});
+    const value = event ? event.target.value : this.state.search;
+    const nameArray = [...names]
+    .filter((name) => name.name.toLowerCase().includes(value.toLowerCase()))
+    .filter((name) => {
+      if (this.state.quickFilter === 'all') return true;
+      return name.gender === this.state.quickFilter;
+    })
+    .sort(App.sortingByName.bind(this));
+    this.setState({names: nameArray, search: value});
+  }
+  
+  onSortChange = (sorting) => {
+    this.setState({sorting}, () => {
+      const nameArray = [...names].sort(App.sortingByName.bind(this));
+      this.setState({names: nameArray});
+    });
   }
 
   renderNameLists = () => ([
     <div className="app-searchbar" key="group-searchbar">
       <input className="searchbar" type="text" onChange={ this.onChangeSearch.bind(this) }/>
     </div>,
-    <div className="app-quick-filters" key="group-filters" style={{color: 'red'}}>
-      ADD QUICK FILTER COMPONENT
-    </div>,
-    <div className="app-sorting" key="group-sort" style={{color: 'red'}}>
-      ADD SORT COMPONENT
-    </div>,
+    <QuickfiltersComponent key="group-filters"
+      currentVal={ this.state.sorting}
+      trigger={ this.onQuickFilter.bind(this)}/>,
+    <SortsComponent key="group-sort"
+      trigger={ this.onSortChange.bind(this) }/>,
     <div className="app-chip-group-pinned" key="group-pinned">
       <ChipGroup chipsData={ this.state.pinned } 
         detailHandler={ this.openDetail.bind( this ) }
