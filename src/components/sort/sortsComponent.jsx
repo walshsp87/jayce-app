@@ -19,8 +19,3 @@ export const SortsComponent = ({trigger}) => {
         </div>
     );
 }
-
-// <div className="app-sorting" key="group-sort">
-//   <div onClick={ this.onSortChange.bind(this, 'A-Z') }>A-Z</div>
-//   <div onClick={ this.onSortChange.bind(this, 'Z-A') }>Z-A</div>
-// </div>
