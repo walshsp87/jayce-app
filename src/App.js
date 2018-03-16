@@ -100,7 +100,7 @@ export default class App extends React.Component {
     const name = this.state.names.find(el => el.id === id);
     return (
       <div className="app-detail-view">
-        <Details name={ name } close={ this.closeDetail } />
+        <Details name={ name } close={ this.closeDetail.bind(this) } />
       </div>
     );
   }
