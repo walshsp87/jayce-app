@@ -55,7 +55,7 @@ export default class App extends React.Component {
   }
 
   closeDetail() {
-    this.setState({ focused: '' });
+    this.setState({ focused: '', search: '' }, () => { this.onChangeSearch() });
   }
 
   openDetail(focused) {
