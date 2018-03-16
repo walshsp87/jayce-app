@@ -58,8 +58,13 @@ export default class App extends React.Component {
     this.setState({ focused: '', search: '' }, () => { this.onChangeSearch() });
   }
 
-  openDetail(focused) {
-    this.setState({ focused });
+  fullFilterFromAbbr(filterLetter) {
+    switch (filterLetter) {
+      case 'm': return 'Masculine';
+      case 'f': return 'Feminine';
+      case 'n': return 'Neutral';
+      default: return 'All'
+    }
   }
 
   isIdPinned(id) {
@@ -89,6 +94,10 @@ export default class App extends React.Component {
     });
   }
 
+  openDetail(focused) {
+    this.setState({ focused });
+  }
+  
   pinChip(id) {
     const name = this.state.names.find( v => v.id === id );
     if( this.state.pinned.indexOf( name ) === -1 ) {
@@ -123,6 +132,8 @@ export default class App extends React.Component {
           group={ 'group-pinned' }/>
       </div>,
       <div className="app-chip-group-main" key="group-main">
+        <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
+        <span className="sorting-applied">{ this.state.sorting })</span>
         <ChipGroup chipsData={ this.state.names } 
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.pinChip.bind( this ) }
