@@ -12,15 +12,7 @@ export const Chip = ({
     const pin = '/pinEmpty.png';
     const unpin = '/pinfilled.png';
     const pinImg = isPinned(id) ? unpin : pin;
-    const pinAlt = isPinned(id) ? 'Unpin' : 'Pin'
-
-    const pinClick = () => {
-        pinHandler( id );
-    };
-
-    const detailClick = () => {
-        detailHandler( id );
-    };
+    const pinAlt = isPinned(id) ? 'Unpin' : 'Pin';
 
     return (
         <div className="chip-wrapper">
@@ -33,5 +25,13 @@ export const Chip = ({
                 </div>
             </div>
         </div>
-    );
+    );    
+
+    function detailClick() {
+        detailHandler(id);
+    }
+
+    function pinClick() {
+        pinHandler(id);
+    }
 };

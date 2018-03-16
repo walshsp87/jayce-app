@@ -17,4 +17,4 @@ export const Quickfilter = ({gender, trigger, isActive}) => {
         if (g === 'n') return 'Neutral';
         return 'All';
     }
-}
+};

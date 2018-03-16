@@ -5,24 +5,29 @@ export const QuickfiltersComponent = ({
     currentVal,
     trigger,
 }) => {
-    const triggers = {
-        m() { trigger('m') },
-        f() { trigger('f') },
-        n() { trigger('n') },
-        all() { trigger('all') },
-    };
     const valueArr = ['m', 'n', 'f', 'all'];
-    const valueArrMap = (gender) => (
-        <Quickfilter key={ `gender_${gender}` }
-            gender={ gender }
-            trigger={ triggers[gender] }
-            isActive={ currentVal === gender } />
-    );
-    
     
     return (
         <div className="app-quick-filters">
             {valueArr.map(valueArrMap)} 
         </div>
     );
-}
+
+    function triggerFactory() {
+        return Object.create({
+            m() { trigger('m') },
+            f() { trigger('f') },
+            n() { trigger('n') },
+            all() { trigger('all') },
+        });
+    }
+
+    function valueArrMap(gender) {
+        return (
+            <Quickfilter key={ `gender_${gender}` }
+                gender={ gender }
+                trigger={ triggerFactory()[gender] }
+                isActive={ currentVal === gender } />
+        );
+    }
+};
