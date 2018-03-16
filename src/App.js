@@ -37,33 +37,35 @@ export default class App extends React.Component {
     return 0;
   }
 
-  openDetail = focused => {
+  openDetail(focused) {
     this.setState({ focused });
   }
 
-  closeDetail = () => {
+  closeDetail() {
     this.setState({ focused: '' });
   }
 
-  pinChip = id => {
+  pinChip(id) {
     const name = this.state.names.find( v => v.id === id );
     if( this.state.pinned.indexOf( name ) === -1 ) {
       this.setState({ pinned: [ ...this.state.pinned, name ] });
     }
-  };
+  }
 
-  unpinChip = id => {
+  unpinChip(id) {
     const pinned = this.state.pinned.filter( pin => pin.id !== id );
     this.setState({ pinned: [ ...pinned ] });
-  };
+  }
 
-  isIdPinned = id => this.state.pinned.filter(val => val.id === id).length > 0;
+  isIdPinned(id) {
+    return this.state.pinned.filter(val => val.id === id).length > 0;
+  } 
 
-  onQuickFilter = ( quickFilter ) => {
+  onQuickFilter(quickFilter) {
     this.setState({quickFilter}, () => {this.onChangeSearch()});
   }
 
-  onChangeSearch = (event) => {
+  onChangeSearch(event) {
     const value = event ? event.target.value : this.state.search;
     const nameArray = [...names]
     .filter((name) => name.name.toLowerCase().includes(value.toLowerCase()))
@@ -75,46 +77,48 @@ export default class App extends React.Component {
     this.setState({names: nameArray, search: value});
   }
   
-  onSortChange = (sorting) => {
+  onSortChange(sorting) {
     this.setState({sorting}, () => {
       const nameArray = [...names].sort(App.sortingByName.bind(this));
       this.setState({names: nameArray});
     });
   }
 
-  renderNameLists = () => ([
-    <div className="app-searchbar" key="group-searchbar">
-      <input className="searchbar" type="text" onChange={ this.onChangeSearch.bind(this) }/>
-    </div>,
-    <QuickfiltersComponent key="group-filters"
-      currentVal={ this.state.sorting}
-      trigger={ this.onQuickFilter.bind(this)}/>,
-    <SortsComponent key="group-sort"
-      trigger={ this.onSortChange.bind(this) }/>,
-    <div className="app-chip-group-pinned" key="group-pinned">
-      <ChipGroup chipsData={ this.state.pinned } 
-        detailHandler={ this.openDetail.bind( this ) }
-        pinHandler={ this.unpinChip.bind( this ) }
-        isPinned={ this.isIdPinned.bind( this ) }
-        group={ 'group-pinned' }/>
-    </div>,
-    <div className="app-chip-group-main" key="group-main">
-      <ChipGroup chipsData={ this.state.names } 
-        detailHandler={ this.openDetail.bind( this ) }
-        pinHandler={ this.pinChip.bind( this ) }
-        isPinned={ this.isIdPinned.bind( this ) }
-        group={ 'group-main' }/>
-    </div>
-  ]);
+  renderNameLists() {
+    return [
+      <div className="app-searchbar" key="group-searchbar">
+        <input className="searchbar" type="text" onChange={ this.onChangeSearch.bind(this) }/>
+      </div>,
+      <QuickfiltersComponent key="group-filters"
+        currentVal={ this.state.sorting}
+        trigger={ this.onQuickFilter.bind(this)}/>,
+      <SortsComponent key="group-sort"
+        trigger={ this.onSortChange.bind(this) }/>,
+      <div className="app-chip-group-pinned" key="group-pinned">
+        <ChipGroup chipsData={ this.state.pinned } 
+          detailHandler={ this.openDetail.bind( this ) }
+          pinHandler={ this.unpinChip.bind( this ) }
+          isPinned={ this.isIdPinned.bind( this ) }
+          group={ 'group-pinned' }/>
+      </div>,
+      <div className="app-chip-group-main" key="group-main">
+        <ChipGroup chipsData={ this.state.names } 
+          detailHandler={ this.openDetail.bind( this ) }
+          pinHandler={ this.pinChip.bind( this ) }
+          isPinned={ this.isIdPinned.bind( this ) }
+          group={ 'group-main' }/>
+      </div>
+    ]
+  }
 
-  renderDetailView = id => {
+  renderDetailView(id) {
     const name = this.state.names.find(el => el.id === id);
     return (
       <div className="app-detail-view">
         <Details name={ name } close={ this.closeDetail } />
       </div>
     );
-  };
+  }
 
   render() {
     return (
