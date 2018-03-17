@@ -21,5 +21,5 @@ export const Details = ({ close, name }) => (
 function similarNamesMap(name) {
     return (
         <div>{name}</div>
-    )
+    );
 }
