@@ -18,8 +18,8 @@ export const Details = ({ close, name }) => (
     </div>
 );
 
-function similarNamesMap(name) {
+function similarNamesMap(name, index) {
     return (
-        <div>{name}</div>
+        <div key={index}>{name}</div>
     );
 }
