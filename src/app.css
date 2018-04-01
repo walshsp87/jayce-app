@@ -1,5 +1,120 @@
-/* Start Custom Styles */
-body {
-    color:blue;
+@charset "utf-8";
+/* CSS Document */
+
+{
+    box-sizing: border-box;
 }
-/* End Custom Styles */
+
+/* Style the search field */
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    border-radius: 15px;
+    margin-left: 10px;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.chip-pin {
+    width:70px;
+    padding-left:40px;
+    padding-top:0px;
+    align-content:center;
+    color:#F5FAFD;
+}
+
+.chip-wrapper {
+    border-radius:20px;
+    font-family: 'Cantarell', sans-serif;
+    color:white;
+    font-size: 20px;
+    padding:1%;
+    align-content:center;
+    margin-left:1%;
+    margin-right:1%;
+    display: inline;
+}
+
+.chip-gender-m {
+    background-color: #00a79d;
+    border-radius:20px;
+    font-family: 'Cantarell', sans-serif;
+    color:white;
+    font-size: 20px;
+    padding:1%;
+    align-content:center;
+    margin-left:1%;
+    margin-right:1%;
+}
+
+.chip-gender-n {
+    background-color: #662d91;
+    border-radius:20px;
+    font-family: 'Cantarell', sans-serif;
+    color:white;
+    font-size: 20px;
+    padding:1%;
+    align-content:center;
+    margin-left:1%;
+    margin-right:1%;
+}
+
+.chip-gender-f {
+    border-radius:20px;
+    background-color: #2bb673;
+    font-family: 'Cantarell', sans-serif;
+    color:white;
+    font-size: 20px;
+    padding:1%;
+    align-content:center;
+    margin-left:1%;
+    margin-right:1%;
+}
+
+.app-chip-group-pinned {
+    padding-top:5%;
+    padding-bottom:5%;
+}
+
+.chip-group {
+    width:20%;
+}
+
+.app-header-text {
+    font-family: 'Fjalla One', sans-serif;
+    padding-left:1%;
+    padding-bottom:0%;
+}
+
+#results {
+    font-size:12px;
+    color:dimgrey;
+    display:inline;
+    padding-left:5px;
+}
