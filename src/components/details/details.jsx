@@ -3,17 +3,9 @@ import * as React from 'react';
 export const Details = ({ close, name }) => (
     <div>
 
-        <h1 class="hero-title">
+        <h1 className="hero-title">
 
-            <div>Name: { name.name }</div> <br><br>
-
-
-            <!-- The form -->
-            <!--<form class="example" action="../jayce-app-master_2/jayce-app-master/src/data/names.js">
-              <input type="text" placeholder="ex. &ldquo;Larkin&rdquo; or &ldquo;German&rdquo;" name="search">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-            -->
+            <div>Name: { name.name }</div>
 
 
             <div className="app-searchbar" key="group-searchbar">

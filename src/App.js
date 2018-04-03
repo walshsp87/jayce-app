@@ -33,15 +33,21 @@ export default class App extends React.Component {
           <ul className="app-menu"></ul>
         </header>
         <div className="app-body">
+
+          <div className="filters">
+          <h2 className="optionheader">Filters:</h2>;
           {
             this.state.focused.length === 0
               ? this.renderNameLists()
               : this.renderDetailView(this.state.focused)
           }
+          </div>
         </div>
       </div>
     );
   }
+
+
 
   static sortingByName(a, b) {
     if (this.state && this.state.sorting === 'Z-A') {
@@ -122,7 +128,10 @@ export default class App extends React.Component {
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
       <div className="app-chip-group-pinned" key="group-pinned">
-        <ChipGroup chipsData={ this.state.pinned } 
+
+          <h2 class="optionheader">Results:</h2>
+
+        <ChipGroup chipsData={ this.state.pinned }
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.unpinChip.bind( this ) }
           isPinned={ this.isIdPinned.bind( this ) }
