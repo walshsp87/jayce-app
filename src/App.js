@@ -42,6 +42,7 @@ export default class App extends React.Component {
               : this.renderDetailView(this.state.focused)
           }
           </div>
+
         </div>
       </div>
     );
@@ -103,6 +104,7 @@ export default class App extends React.Component {
   openDetail(focused) {
     this.setState({ focused });
   }
+
   
   pinChip(id) {
     const name = this.state.names.find( v => v.id === id );
@@ -127,9 +129,11 @@ export default class App extends React.Component {
         trigger={ this.onQuickFilter.bind(this)}/>,
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
+
       <div className="app-chip-group-pinned" key="group-pinned">
 
-          <h2 class="optionheader">Results:</h2>
+
+          <h2 className="optionheader">Results:</h2>
 
         <ChipGroup chipsData={ this.state.pinned }
           detailHandler={ this.openDetail.bind( this ) }
