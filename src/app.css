@@ -106,6 +106,10 @@ form.example::after {
     width:20%;
 }
 
+.chip-group-container {
+
+}
+
 .app-header-text {
     font-family: 'Fjalla One', sans-serif;
     padding-left:1%;

@@ -30,7 +30,7 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <header className="app-header">
-          <ul className="app-menu">**menu here**</ul>
+          <ul className="app-menu"></ul>
         </header>
         <div className="app-body">
           {
@@ -116,9 +116,6 @@ export default class App extends React.Component {
 
   renderNameLists() {
     return [
-      <div className="app-searchbar" key="group-searchbar">
-        <input className="searchbar" type="text" onChange={ this.onChangeSearch.bind(this) }/>
-      </div>,
       <QuickfiltersComponent key="group-filters"
         currentVal={ this.state.sorting}
         trigger={ this.onQuickFilter.bind(this)}/>,

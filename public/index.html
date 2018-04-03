@@ -287,7 +287,7 @@
   <style id="page-content-custom-styles">
   </style>
   <style data-name="header-shapes">
-    .header.color-overlay:after {background:url(names-header-01.png)) center center/ cover no-repeat}        </style>
+    .header.color-overlay:after {background:url(http://www.yournamejourney.com/wp-content/uploads/2018/04/names-header-01.png) center center/ cover no-repeat}        </style>
   <style data-name="background-content-colors">
     .mesmerize-inner-page .page-content,
     .mesmerize-inner-page .content,
@@ -376,12 +376,17 @@
 
 
               <!-- The form -->
-              <form class="example" action="../jayce-app-master_2/jayce-app-master/src/data/names.js">
+              <!--<form class="example" action="../jayce-app-master_2/jayce-app-master/src/data/names.js">
                 <input type="text" placeholder="ex. &ldquo;Larkin&rdquo; or &ldquo;German&rdquo;" name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
+              -->
 
 
+                <div className="app-searchbar" key="group-searchbar">
+                    <input className="searchbar" type="text" placeholder="ex. &ldquo;Larkin&rdquo; or &ldquo;German&rdquo;" onChange={ this.onChangeSearch.bind(this) }/>
+                </div>
+                
 
 
             </h1>
