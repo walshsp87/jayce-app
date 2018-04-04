@@ -30,18 +30,25 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <header className="app-header">
-          <ul className="app-menu">**menu here**</ul>
+          <ul className="app-menu"></ul>
         </header>
         <div className="app-body">
+
+          <div className="filters">
+          <h2 className="optionheader">Filters:</h2>;
           {
             this.state.focused.length === 0
               ? this.renderNameLists()
               : this.renderDetailView(this.state.focused)
           }
+          </div>
+
         </div>
       </div>
     );
   }
+
+
 
   static sortingByName(a, b) {
     if (this.state && this.state.sorting === 'Z-A') {
@@ -97,6 +104,7 @@ export default class App extends React.Component {
   openDetail(focused) {
     this.setState({ focused });
   }
+
   
   pinChip(id) {
     const name = this.state.names.find( v => v.id === id );
@@ -116,21 +124,22 @@ export default class App extends React.Component {
 
   renderNameLists() {
     return [
-      <div className="app-searchbar" key="group-searchbar">
-        <input className="searchbar" type="text" onChange={ this.onChangeSearch.bind(this) }/>
-      </div>,
       <QuickfiltersComponent key="group-filters"
         currentVal={ this.state.sorting}
         trigger={ this.onQuickFilter.bind(this)}/>,
+        
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
+
       <div className="app-chip-group-pinned" key="group-pinned">
-        <ChipGroup chipsData={ this.state.pinned } 
+          <h2 className="optionheader">Results:</h2>
+        <ChipGroup chipsData={ this.state.pinned }
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.unpinChip.bind( this ) }
           isPinned={ this.isIdPinned.bind( this ) }
           group={ 'group-pinned' }/>
       </div>,
+
       <div className="app-chip-group-main" key="group-main">
         <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
         <span className="sorting-applied">{ this.state.sorting })</span>
