@@ -133,7 +133,7 @@ export default class App extends React.Component {
         trigger={ this.onSortChange.bind(this) }/>,
 
       <div className="app-chip-group-pinned" key="group-pinned">
-          <h2 className="optionheader">Results:</h2>
+
         <ChipGroup chipsData={ this.state.pinned }
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.unpinChip.bind( this ) }
@@ -142,8 +142,9 @@ export default class App extends React.Component {
       </div>,
 
       <div className="app-chip-group-main" key="group-main">
-        <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
-        <span className="sorting-applied">{ this.state.sorting })</span>
+          <div className="optionheader">Results: <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
+      <span className="sorting-applied">{ this.state.sorting })</span></div>
+
         <ChipGroup chipsData={ this.state.names } 
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.pinChip.bind( this ) }
