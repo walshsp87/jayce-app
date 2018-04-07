@@ -10,7 +10,7 @@ export const Chip = ({
     if (group === 'group-main' && isPinned(id)) return null;
 
     const pin = '/pinEmpty.png';
-    const unpin = '/pinfilled.png';
+    const unpin = '/pinFilled.png';
     const pinImg = isPinned(id) ? unpin : pin;
     const pinAlt = isPinned(id) ? 'Unpin' : 'Pin';
 

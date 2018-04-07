@@ -123,20 +123,19 @@ export default class App extends React.Component {
       <QuickfiltersComponent key="group-filters"
         currentVal={ this.state.sorting}
         trigger={ this.onQuickFilter.bind(this)}/>,
+        
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
 
       <div className="app-chip-group-pinned" key="group-pinned">
-
-
           <h2 className="optionheader">Results:</h2>
-
         <ChipGroup chipsData={ this.state.pinned }
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.unpinChip.bind( this ) }
           isPinned={ this.isIdPinned.bind( this ) }
           group={ 'group-pinned' }/>
       </div>,
+
       <div className="app-chip-group-main" key="group-main">
         <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
         <span className="sorting-applied">{ this.state.sorting })</span>
