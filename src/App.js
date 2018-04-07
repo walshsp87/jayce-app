@@ -34,16 +34,12 @@ export default class App extends React.Component {
         </header>
         <div className="app-body">
 
-          <div className="filters">
-          <h2 className="optionheader">Filters:</h2>;
           {
             this.state.focused.length === 0
               ? this.renderNameLists()
               : this.renderDetailView(this.state.focused)
           }
           </div>
-
-        </div>
       </div>
     );
   }
