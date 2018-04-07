@@ -32,7 +32,11 @@ export default class App extends React.Component {
         <header className="app-header">
           <ul className="app-menu"></ul>
         </header>
+
+
         <div className="app-body">
+
+
 
           {
             this.state.focused.length === 0
@@ -123,6 +127,7 @@ export default class App extends React.Component {
       <QuickfiltersComponent key="group-filters"
         currentVal={ this.state.sorting}
         trigger={ this.onQuickFilter.bind(this)}/>,
+
         
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
