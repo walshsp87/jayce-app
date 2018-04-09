@@ -61,40 +61,28 @@ form.example::after {
     display: inline;
 }
 
-.chip-gender-m {
-    background-color: #00a79d;
+.chip-gender-m, .chip-gender-f, .chip-gender-n {
     border-radius:20px;
     font-family: 'Cantarell', sans-serif;
     color:white;
     font-size: 20px;
-    padding:1.5%;
+    padding:8%;
     align-content:center;
     margin-left:1%;
     margin-right:1%;
+    text-align: center;
 }
 
 .chip-gender-n {
     background-color: #662d91;
-    border-radius:20px;
-    font-family: 'Cantarell', sans-serif;
-    color:white;
-    font-size: 20px;
-    padding:1.5%;
-    align-content:center;
-    margin-left:1%;
-    margin-right:1%;
 }
 
 .chip-gender-f {
-    border-radius:20px;
     background-color: #2bb673;
-    font-family: 'Cantarell', sans-serif;
-    color:white;
-    font-size: 20px;
-    padding:1.5%;
-    align-content:center;
-    margin-left:1%;
-    margin-right:1%;
+}
+
+.chip-gender-m {
+    background-color: #00a79d;
 }
 
 .app-chip-group-pinned {
@@ -104,7 +92,7 @@ form.example::after {
 
 .chip-group {
     width:30%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     display:grid;
 }
 
@@ -136,62 +124,37 @@ form.example::after {
 }
 
 .m {
-    border-radius:20px;
     background-color: #00a79d;
-    font-family: 'Cantarell', sans-serif;
-    color:white;
-    font-size: 20px;
-    padding:2%;
-    padding-left:3%;
-    padding-right:3%;
-    align-content:center;
-    margin-left:1%;
-    margin-right:1%;
-    grid-column:1;
+    grid-column-start:1;
 }
 
 .f {
-    border-radius:20px;
     background-color: #2bb673;
-    font-family: 'Cantarell', sans-serif;
-    color:white;
-    font-size: 20px;
-    padding:2%;
-    padding-left:3%;
-    padding-right:3%;
-    align-content:center;
-    margin-left:1%;
-    margin-right:1%;
-    grid-column:1;
 }
 
 .n {
-    border-radius:20px;
     background-color: #662d91;
+}
+
+.m, .n, .f,.all {
+    border-radius:20px;
     font-family: 'Cantarell', sans-serif;
     color:white;
     font-size: 20px;
-    padding:2%;
+    padding-top:5%;
+    padding-bottom:5%;
     padding-left:3%;
     padding-right:3%;
     align-content:center;
-    margin-left:1%;
-    margin-right:1%;
-    grid-column:1;
+    text-align: center;
+    display:grid;
+    grid-column: 1fr 1fr 1fr 1fr;
 }
 
 .all {
-    border-radius:20px;
     background-color: #2EBCFC;
-    font-family: 'Cantarell', sans-serif;
-    color:white;
-    font-size: 20px;
-    padding:2%;
-    padding-left:3%;
-    padding-right:3%;
-    align-content:center;
-    margin-left:1%;
-    margin-right:1%;
+    display:inline-grid;
+
 }
 
 .f, .m, .n {
@@ -201,20 +164,31 @@ form.example::after {
 .app-quick-filters {
     display:grid;
     grid-template-columns: 200px 200px 200px;
+    padding-top:5%;
+    padding-bottom:5%;
 }
 
-.app-sorting {
-    border-radius:20px;
+.app-sorting > div {
+    border-radius:25px;
     background-color: #03A9F4;
     font-family: 'Cantarell', sans-serif;
     color:white;
     font-size: 20px;
-    padding:1%;
-    padding-left:3%;
-    padding-right:3%;
+    padding-top:5%;
+    padding-bottom:5%;
     align-content:center;
-    margin-left:1%;
-    margin-right:1%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin-top:5%;
+    margin-bottom:5%;
+    width: 20%;
+    text-align: center;
+}
+
+.app-sorting {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin:0 0 0 0;
 }
 
 .app-chip-group-main {
@@ -232,3 +206,137 @@ form.example::after {
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
 }
+
+.detailname {
+    color: #662d91;
+}
+
+.detailgender {
+    color:dimgray;
+    font-size:14px;
+}
+
+.orprme {
+    display:inline-block;
+    justify-content: center;
+    text-align:center;
+    padding-bottom:5%;
+    padding-top:2%;
+}
+
+.detailpro, .detailmeaning {
+    padding:5%;
+    justify-content: center;
+}
+
+.detailorigin {
+    padding-right:5%;
+}
+
+.headerdetails {
+    font-family: 'Fjalla One', sans-serif;
+    color:black;
+    font-size: 20px;
+}
+
+.seemore {
+    border-radius:20px;
+    background-color: #2EBCFC;
+    font-family: 'Cantarell', sans-serif;
+    color:white;
+    font-size: 20px;
+    padding:2%;
+    padding-left:3%;
+    padding-right:3%;
+    align-content:center;
+    margin-left:1%;
+    margin-right:1%;
+}
+
+.seemorespace {
+    padding-bottom:2%;
+    padding-top:5%;
+}
+
+.app-detail-view {
+    width:100%;
+}
+
+.similar {
+    background-color:#DCE1E3;
+    padding-left:5px;
+    color:white;
+    border-radius: 2%;
+    max-width:80%;
+    margin-top: 5%;
+    padding-top:5%;
+    width:100%;
+}
+
+.similar > div {
+    background-color:#662d91;
+    margin-top:5%;
+    margin-bottom:5%;
+    width:20%;
+    border-radius:20px;
+    padding-top:2%;
+    padding-bottom:2%;
+    text-align:center;
+    margin-left:2%;
+    margin-right:0px;
+}
+
+.simheader1 {
+    color: black;
+    font-family: 'Fjalla One', sans-serif;
+    font-size:30px;
+    margin-left:2%;
+    padding-top:30px;
+}
+
+.quickfilter-applied, .sorting-applied {
+    font-size:15px;
+    color:dimgrey;
+    display:inline;
+    padding-left:5px;
+}
+
+.optionheader {
+    font-family: 'Fjalla One', sans-serif;
+    padding-left:1%;
+    padding-bottom:0.5%;
+    margin-top:2%;
+    margin-bottom:2%;
+    color:black;
+    font-size: 30px;
+    text-align:left;
+}
+
+.app-quick-filters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+}
+
+.optionheadercenter {
+    font-family: 'Fjalla One', sans-serif;
+    padding-left:1%;
+    padding-bottom:0.5%;
+    color:black;
+    font-size: 30px;
+    text-align: center;
+}
+
+.optionheaderpinned {
+    font-family: 'Fjalla One', sans-serif;
+    padding-left:1%;
+    padding-bottom:0.5%;
+    margin-top:2%;
+    margin-bottom:2%;
+    margin-left:2%;
+    color:black;
+    font-size: 30px;
+    text-align:left;
+}
+
