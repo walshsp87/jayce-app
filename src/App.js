@@ -36,8 +36,7 @@ export default class App extends React.Component {
 
         <div className="app-body">
 
-
-
+          <div className="optionheadercenter">Filters:</div>
           {
             this.state.focused.length === 0
               ? this.renderNameLists()
@@ -47,8 +46,6 @@ export default class App extends React.Component {
       </div>
     );
   }
-
-
 
   static sortingByName(a, b) {
     if (this.state && this.state.sorting === 'Z-A') {
@@ -122,18 +119,17 @@ export default class App extends React.Component {
     );
   }
 
+
   renderNameLists() {
     return [
       <QuickfiltersComponent key="group-filters"
         currentVal={ this.state.sorting}
         trigger={ this.onQuickFilter.bind(this)}/>,
-
-        
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
 
       <div className="app-chip-group-pinned" key="group-pinned">
-
+          <div className="optionheaderpinned">Pinned:</div>
         <ChipGroup chipsData={ this.state.pinned }
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.unpinChip.bind( this ) }
@@ -142,10 +138,11 @@ export default class App extends React.Component {
       </div>,
 
       <div className="app-chip-group-main" key="group-main">
+
           <div className="optionheader">Results: <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
       <span className="sorting-applied">{ this.state.sorting })</span></div>
 
-        <ChipGroup chipsData={ this.state.names } 
+        <ChipGroup chipsData={ this.state.names }
           detailHandler={ this.openDetail.bind( this ) }
           pinHandler={ this.pinChip.bind( this ) }
           isPinned={ this.isIdPinned.bind( this ) }

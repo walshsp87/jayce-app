@@ -13,12 +13,12 @@ export const Details = ({ close, name }) => (
         <div>
 
             <div class="orprme">
-            <span className="detailorigin">Origin: { name.origin }</span>
-            <span className="detailpro">Pronunciation: { name.pronunciation }</span>
-                <span className="detailmeaning">Meaning: { name.meaning }</span></div>
+                <span className="detailorigin"><span className="headerdetails">Origin:</span> { name.origin }</span>
+                <span className="detailpro"><span className="headerdetails">Pronunciation:</span> { name.pronunciation }</span>
+                <span className="detailmeaning"><span className="headerdetails">Meaning:</span> { name.meaning }</span></div>
 
 
-            <div className="detailhistory">History: { name.history }</div>
+            <div className="detailhistory"><span className="headerdetails">History:</span> { name.history }</div>
 
             <div className="similar"><span className="simheader1">Similar:</span> { name.similar.map(similarNamesMap) }</div>
         </div>
