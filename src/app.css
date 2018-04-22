@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-{
+* {
     box-sizing: border-box;
 }
 
@@ -42,8 +42,8 @@ form.example::after {
 }
 
 .chip-pin {
-    width:70px;
-    padding-left:40px;
+    /* width:70px; */
+    /* padding-left:40px; */
     padding-top:0px;
     align-content:center;
     color:#F5FAFD;
@@ -91,9 +91,12 @@ form.example::after {
 }
 
 .chip-group {
-    width:30%;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     display:grid;
+}
+
+.chip-group::before {
+    content: none;
 }
 
 .chip-wrapper {
@@ -109,6 +112,11 @@ form.example::after {
     grid-column:1;
     grid-row:1;
     grid-template-columns: 1fr 1fr;
+    float: left;
+}
+
+.chip-pin {
+    float: right;
 }
 
 .app-header-text {
