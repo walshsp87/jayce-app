@@ -1,10 +1,16 @@
 @charset "utf-8";
 /* CSS Document */
 
+<<<<<<< HEAD
 @media screen and (min-width: 992px) {
     * {
         box-sizing: border-box;
     }
+=======
+* {
+    box-sizing: border-box;
+}
+>>>>>>> a5cbaad16af57b4d472066294720f467c8336356
 
     /* Style the search field */
     form.example input[type=text] {
@@ -41,6 +47,17 @@
         clear: both;
         display: table;
     }
+<<<<<<< HEAD
+=======
+.chip-pin {
+    /* width:70px; */
+    /* padding-left:40px; */
+    padding-top:0px;
+    align-content:center;
+    color:#F5FAFD;
+}
+
+>>>>>>> a5cbaad16af57b4d472066294720f467c8336356
     .chip-pin {
         /* width:70px; */
         /* padding-left:40px; */
@@ -96,19 +113,45 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         display: grid;
     }
+<<<<<<< HEAD
 
     .chip-group::before {
         content: none;
     }
+=======
+.chip-group {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display:grid;
+}
+
+.chip-group::before {
+    content: none;
+}
+
+.chip-wrapper {
+>>>>>>> a5cbaad16af57b4d472066294720f467c8336356
 
     .chip-wrapper {
 
     }
 
+<<<<<<< HEAD
     .chip-group-container {
         display: grid;
         grid-column: 1;
     }
+=======
+.chip-name, .chip-pin {
+    grid-column:1;
+    grid-row:1;
+    grid-template-columns: 1fr 1fr;
+    float: left;
+}
+
+.chip-pin {
+    float: right;
+}
+>>>>>>> a5cbaad16af57b4d472066294720f467c8336356
 
     .chip-name, .chip-pin {
         grid-column: 1;
