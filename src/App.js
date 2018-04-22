@@ -35,8 +35,6 @@ export default class App extends React.Component {
 
 
         <div className="app-body">
-
-          <div className="optionheadercenter">Filters:</div>
           {
             this.state.focused.length === 0
               ? this.renderNameLists()
@@ -122,9 +120,11 @@ export default class App extends React.Component {
 
   renderNameLists() {
     return [
+      <div className="optionheadercenter">Filters:</div>,
       <QuickfiltersComponent key="group-filters"
         currentVal={ this.state.sorting}
         trigger={ this.onQuickFilter.bind(this)}/>,
+      <div className="optionheadercenter">Sort By:</div>,
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
 
