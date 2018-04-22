@@ -1,13 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
-<<<<<<< HEAD
-@media screen and (min-width: 992px) { {
-=======
-* {
->>>>>>> 727ee1e23d0da8501a0f9da1f79b94de3485875a
-    box-sizing: border-box;
-}
+@media screen and (min-width: 992px) {
+    * {
+        box-sizing: border-box;
+    }
 
     /* Style the search field */
     form.example input[type=text] {
@@ -38,29 +35,18 @@
 
     }
 
-<<<<<<< HEAD
     /* Clear floats */
     form.example::after {
         content: "";
         clear: both;
         display: table;
     }
-=======
-.chip-pin {
-    /* width:70px; */
-    /* padding-left:40px; */
-    padding-top:0px;
-    align-content:center;
-    color:#F5FAFD;
-}
->>>>>>> 727ee1e23d0da8501a0f9da1f79b94de3485875a
-
     .chip-pin {
-        width: 70px;
-        padding-left: 40px;
-        padding-top: 0px;
-        align-content: center;
-        color: #F5FAFD;
+        /* width:70px; */
+        /* padding-left:40px; */
+        padding-top:0px;
+        align-content:center;
+        color:#F5FAFD;
     }
 
     .chip-wrapper {
@@ -99,7 +85,6 @@
         background-color: #00a79d;
     }
 
-<<<<<<< HEAD
     .app-chip-group-pinned {
         padding-top: 5%;
         padding-bottom: 5%;
@@ -111,46 +96,29 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         display: grid;
     }
-=======
-.chip-group {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    display:grid;
-}
 
-.chip-group::before {
-    content: none;
-}
-
-.chip-wrapper {
->>>>>>> 727ee1e23d0da8501a0f9da1f79b94de3485875a
+    .chip-group::before {
+        content: none;
+    }
 
     .chip-wrapper {
 
     }
 
-<<<<<<< HEAD
     .chip-group-container {
         display: grid;
         grid-column: 1;
     }
-=======
-.chip-name, .chip-pin {
-    grid-column:1;
-    grid-row:1;
-    grid-template-columns: 1fr 1fr;
-    float: left;
-}
-
-.chip-pin {
-    float: right;
-}
->>>>>>> 727ee1e23d0da8501a0f9da1f79b94de3485875a
 
     .chip-name, .chip-pin {
         grid-column: 1;
         grid-row: 1;
         grid-template-columns: 1fr 1fr;
         float: left;
+    }
+    
+    .chip-pin {
+        flost: right
     }
 
     .app-header-text {
