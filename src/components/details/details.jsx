@@ -1,15 +1,32 @@
 import * as React from 'react';
 
-export const Details = ({ close, name }) => (
+const images = {
+    pin: {
+        src: '/pinEmpty.png',
+        alt: 'Pin Name'
+    },
+    unpin: {
+        src: '/pinFilled.png',
+        alt: 'Unpin Name'
+    },
+};
+
+export const Details = ({ close, name, pin }) => (
     <div>
 
         <h1 className="hero-title">
 
-            <div className="detailname">{ name.name } <span className="detailgender">({ name.gender })</span></div>
-
+            <div className="detailname">
+                { name.name }
+                <span className="detailgender"> ({ name.gender }) </span>
+                <img onClick={ pin }
+                     src={ name.pinned ? images.unpin.src : images.pin.src } 
+                     alt={ name.pinned ? images.unpin.alt : images.pin.alt }
+                     style={{ maxWidth: '32px'}}/>
+            </div>
 
         </h1>
-
+        
         <div>
 
             <div class="orprme">

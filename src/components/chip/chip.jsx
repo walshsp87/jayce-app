@@ -28,6 +28,7 @@ export const Chip = ({
     );    
 
     function detailClick() {
+        window.scrollTo(0, 0);
         detailHandler(id);
     }
 

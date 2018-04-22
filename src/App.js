@@ -57,6 +57,7 @@ export default class App extends React.Component {
   }
 
   closeDetail() {
+    window.scrollTo(0, 0);
     this.setState({ focused: '', search: '' }, () => { this.onChangeSearch() });
   }
 
@@ -102,17 +103,24 @@ export default class App extends React.Component {
 
   
   pinChip(id) {
-    const name = this.state.names.find( v => v.id === id );
-    if( this.state.pinned.indexOf( name ) === -1 ) {
+    const names = this.state.names;
+    const name = names.find( v => v.id === id );
+    name.pinned = name.pinned ? !name.pinned : true;
+    const index = names.indexOf(name);
+    const pinIndex = this.state.pinned.indexOf(name);
+    if( pinIndex === -1 ) {
       this.setState({ pinned: [ ...this.state.pinned, name ] });
+    } else {
+      this.setState({ pinned: this.state.pinned.filter((name) => name.id !== id)});
     }
+    this.setState({ names: [...names.slice(0, index), name, ...names.slice(index + 1)]});
   }
 
   renderDetailView(id) {
     const name = this.state.names.find(el => el.id === id);
     return (
       <div className="app-detail-view">
-        <Details name={ name } close={ this.closeDetail.bind(this) } />
+        <Details name={ name } close={ this.closeDetail.bind(this) } pin={ this.pinChip.bind(this, name.id) } />
       </div>
     );
   }
@@ -138,8 +146,7 @@ export default class App extends React.Component {
       </div>,
 
       <div className="app-chip-group-main" key="group-main">
-
-          <div className="optionheader">Results: <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
+        <div className="optionheader">Results: <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
       <span className="sorting-applied">{ this.state.sorting })</span></div>
 
         <ChipGroup chipsData={ this.state.names }
@@ -152,7 +159,8 @@ export default class App extends React.Component {
   }
 
   unpinChip(id) {
-    const pinned = this.state.pinned.filter( pin => pin.id !== id );
-    this.setState({ pinned: [ ...pinned ] });
+    this.pinChip(id);
+    // const pinned = this.state.pinned.filter( pin => pin.id !== id );
+    // this.setState({ pinned: [ ...pinned ] });
   }
 }
