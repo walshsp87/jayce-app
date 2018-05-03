@@ -16,14 +16,28 @@ export default class App extends React.Component {
     const sorting = 'A-Z';
     const nameList = [...names].sort(App.sortingByName.bind(this));
 
+
+    
+
     this.state = {
       focused,
       pinned,
       quickFilter,
       search,
       sorting,
+      namesConst: nameList,
       names: nameList,
     };
+  }
+
+  componentDidMount() {
+    const searchInput = document.getElementById('searchbar');
+    searchInput.addEventListener("keyup", this.onChangeSearch.bind(this));
+  }
+
+  componentWillUnmount() {
+    const searchInput = document.getElementById('searchbar');
+    searchInput.removeEventListener("keyup", this.onChangeSearch.bind(this));
   }
   
   render() {
@@ -35,8 +49,6 @@ export default class App extends React.Component {
 
 
         <div className="app-body">
-
-          <div className="optionheadercenter">Filters:</div>
           {
             this.state.focused.length === 0
               ? this.renderNameLists()
@@ -59,6 +71,7 @@ export default class App extends React.Component {
   }
 
   closeDetail() {
+    window.scrollTo(0, 0);
     this.setState({ focused: '', search: '' }, () => { this.onChangeSearch() });
   }
 
@@ -104,17 +117,28 @@ export default class App extends React.Component {
 
   
   pinChip(id) {
-    const name = this.state.names.find( v => v.id === id );
-    if( this.state.pinned.indexOf( name ) === -1 ) {
+    const names = this.state.namesConst;
+    const name = names.find( v => v.id === id );
+    name.pinned = name.pinned ? !name.pinned : true;
+    const index = names.indexOf(name);
+    const pinIndex = this.state.pinned.indexOf(name);
+    if( pinIndex === -1 ) {
       this.setState({ pinned: [ ...this.state.pinned, name ] });
+    } else {
+      this.setState({ pinned: this.state.pinned.filter((name) => name.id !== id)});
     }
+    this.setState({ names: [...names.slice(0, index), name, ...names.slice(index + 1)]});
+  }
+
+  receiveSearchEvent(e) {
+    
   }
 
   renderDetailView(id) {
-    const name = this.state.names.find(el => el.id === id);
+    const name = this.state.namesConst.find(el => el.id === id);
     return (
       <div className="app-detail-view">
-        <Details name={ name } close={ this.closeDetail.bind(this) } />
+        <Details name={ name } close={ this.closeDetail.bind(this) } pin={ this.pinChip.bind(this, name.id) } />
       </div>
     );
   }
@@ -122,9 +146,11 @@ export default class App extends React.Component {
 
   renderNameLists() {
     return [
+      <div className="optionheadercenter">Filters:</div>,
       <QuickfiltersComponent key="group-filters"
         currentVal={ this.state.sorting}
         trigger={ this.onQuickFilter.bind(this)}/>,
+      <div className="optionheadercenter">Sort By:</div>,
       <SortsComponent key="group-sort"
         trigger={ this.onSortChange.bind(this) }/>,
 
@@ -138,8 +164,7 @@ export default class App extends React.Component {
       </div>,
 
       <div className="app-chip-group-main" key="group-main">
-
-          <div className="optionheader">Results: <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
+        <div className="optionheader">Results: <span className="quickfilter-applied">({ this.fullFilterFromAbbr(this.state.quickFilter) }, </span>
       <span className="sorting-applied">{ this.state.sorting })</span></div>
 
         <ChipGroup chipsData={ this.state.names }
@@ -152,7 +177,8 @@ export default class App extends React.Component {
   }
 
   unpinChip(id) {
-    const pinned = this.state.pinned.filter( pin => pin.id !== id );
-    this.setState({ pinned: [ ...pinned ] });
+    this.pinChip(id);
+    // const pinned = this.state.pinned.filter( pin => pin.id !== id );
+    // this.setState({ pinned: [ ...pinned ] });
   }
 }
