@@ -29,7 +29,7 @@ export const Details = ({ close, name, pin }) => (
         
         <div>
 
-            <div class="orprme">
+            <div className="orprme">
                 <span className="detailorigin"><span className="headerdetails">Origin:</span> { name.origin }</span>
                 <span className="detailpro"><span className="headerdetails">Pronunciation:</span> { name.pronunciation }</span>
                 <span className="detailmeaning"><span className="headerdetails">Meaning:</span> { name.meaning }</span></div>
