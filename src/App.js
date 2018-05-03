@@ -16,14 +16,28 @@ export default class App extends React.Component {
     const sorting = 'A-Z';
     const nameList = [...names].sort(App.sortingByName.bind(this));
 
+
+    
+
     this.state = {
       focused,
       pinned,
       quickFilter,
       search,
       sorting,
+      namesConst: nameList,
       names: nameList,
     };
+  }
+
+  componentDidMount() {
+    const searchInput = document.getElementById('searchbar');
+    searchInput.addEventListener("keyup", this.onChangeSearch.bind(this));
+  }
+
+  componentWillUnmount() {
+    const searchInput = document.getElementById('searchbar');
+    searchInput.removeEventListener("keyup", this.onChangeSearch.bind(this));
   }
   
   render() {
@@ -116,8 +130,12 @@ export default class App extends React.Component {
     this.setState({ names: [...names.slice(0, index), name, ...names.slice(index + 1)]});
   }
 
+  receiveSearchEvent(e) {
+    
+  }
+
   renderDetailView(id) {
-    const name = this.state.names.find(el => el.id === id);
+    const name = this.state.namesConst.find(el => el.id === id);
     return (
       <div className="app-detail-view">
         <Details name={ name } close={ this.closeDetail.bind(this) } pin={ this.pinChip.bind(this, name.id) } />
