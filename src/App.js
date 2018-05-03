@@ -117,7 +117,7 @@ export default class App extends React.Component {
 
   
   pinChip(id) {
-    const names = this.state.names;
+    const names = this.state.namesConst;
     const name = names.find( v => v.id === id );
     name.pinned = name.pinned ? !name.pinned : true;
     const index = names.indexOf(name);
