@@ -95,6 +95,7 @@
         max-width: 1200px;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         display: grid;
+        float: right;
     }
 
     .chip-wrapper {
@@ -697,4 +698,7 @@
         font-size: 30px;
         text-align: left;
     }
+
+    .chip-group:before {content: none; }
+
 }
