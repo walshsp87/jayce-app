@@ -577,20 +577,26 @@
     }
 
     .orprme {
-        display: inline-block;
-        justify-content: center;
-        text-align: center;
+        display: grid;
+        justify-content: left;
+        text-align: left;
+        align-content: left;
         padding-bottom: 5%;
         padding-top: 2%;
+        width:100%;
     }
 
     .detailpro, .detailmeaning {
-        padding: 5%;
-        justify-content: center;
+        justify-content: left;
+        text-align:left;
+        align-content:left;
     }
 
     .detailorigin {
         padding-right: 5%;
+        justify-content: left;
+        text-align:left;
+        align-content:left;
     }
 
     .headerdetails {
@@ -617,6 +623,10 @@
         padding-bottom: 2%;
         padding-top: 5%;
     }
+
+    .similar < div {
+
+               }
 
     .app-detail-view {
         width: 100%;
