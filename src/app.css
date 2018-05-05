@@ -1,6 +1,14 @@
 @charset "utf-8";
 /* CSS Document */
 
+.chip-group:before {
+    content: none!important;
+}
+
+.chip-pin {    
+    float: right !important;
+}
+
 @media screen and (min-width: 992px) { {
     box-sizing: border-box;
 }
@@ -182,15 +190,16 @@
         align-content: center;
         grid-column-gap: 10px;
         grid-row-gap: 10px;
+        margin: auto;
         margin-top: 5%;
         margin-bottom: 5%;
-        width: 20%;
+        width: 90%;
         text-align: center;
     }
 
     .app-sorting {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         margin: 0 0 0 0;
         width: 100%;
     }
