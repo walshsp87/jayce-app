@@ -16,9 +16,6 @@ export default class App extends React.Component {
     const sorting = 'A-Z';
     const nameList = [...names].sort(App.sortingByName.bind(this));
 
-
-    
-
     this.state = {
       focused,
       pinned,
@@ -97,7 +94,9 @@ export default class App extends React.Component {
       return name.gender === this.state.quickFilter;
     })
     .sort(App.sortingByName.bind(this));
-    this.setState({names: nameArray, search: value});
+
+    const searchDomEl = document.getElementById('searchbar');
+    this.setState({names: nameArray, search: value}, () => {searchDomEl.value = value});
   }
 
   onQuickFilter(quickFilter) {

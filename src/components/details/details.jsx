@@ -29,13 +29,13 @@ export const Details = ({ close, name, pin }) => (
         
         <div>
 
-            <div class="orprme">
-                <span className="detailorigin"><span className="headerdetails">Origin:</span> { name.origin }</span>
-                <span className="detailpro"><span className="headerdetails">Pronunciation:</span> { name.pronunciation }</span>
-                <span className="detailmeaning"><span className="headerdetails">Meaning:</span> { name.meaning }</span></div>
+            <div className="orprme">
+                <div className="detailorigin"><span className="headerdetails">Origin:</span> { name.origin }</div>
+                <div className="detailpro"><span className="headerdetails">Pronunciation:</span> { name.pronunciation }</div>
+                <div className="detailmeaning"><span className="headerdetails">Meaning:</span> { name.meaning }</div>
 
 
-            <div className="detailhistory"><span className="headerdetails">History:</span> { name.history }</div>
+            <div className="detailhistory"><span className="headerdetails">History:</span> { name.history }</div></div>
 
             <div className="similar"><span className="simheader1">Similar:</span> { name.similar.map(similarNamesMap) }</div>
         </div>
