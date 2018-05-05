@@ -36,8 +36,8 @@ export const Details = ({ close, name, pin }) => (
 
 
             <div className="detailhistory"><span className="headerdetails">History:</span> { name.history }</div></div>
-
-            <div className="similar"><span className="simheader1">Similar:</span> { name.similar.map(similarNamesMap) }</div>
+            <div>   <span className="simheader1">Similar Names:</span></div>
+            <div className="similar"> { name.similar.map(similarNamesMap) }</div>
         </div>
 
         <div className="seemorespace">
