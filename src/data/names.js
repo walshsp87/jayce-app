@@ -67,7 +67,7 @@ export const names = [
         origin: 'Hebrew',
         pronunciation: 'AR-en',
         meaning: 'high mountain; exalted, enlightened',
-        history: 'Became popular in the latter part of the 20th century for it&#39;s aden suffix sound',
+        history: 'Became popular in the latter part of the 20th century for it\*s aden suffix sound',
         similar: [
             'Aaren',
             'Aron',
@@ -500,7 +500,7 @@ export const names = [
         ],
         pronunciation: 'i-MA-nwel',
         meaning: 'God is with us',
-        history: 'Form of Emmanuel in translation of the Old Testament; from the Hebrew name &#39;Immanu&#39;el; used in England since the 16th century',
+        history: 'Form of Emmanuel in translation of the Old Testament; from the Hebrew name \*Immanu\*el; used in England since the 16th century',
         similar: [
             'Emmanuel',
             'Manuel',
